@@ -1,0 +1,20 @@
+<?php
+echo "<h1>Hello User Welcome</h1>";
+
+//error handler function
+function customError($errno, $errstr) {
+  echo "<b>Error:</b> [$errno] $errstr<br>";
+  echo "Ending Script";
+  die();
+}
+
+//set error handler
+set_error_handler("customError",E_USER_WARNING);
+
+?>
+
+<form action="/index/upload/" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
